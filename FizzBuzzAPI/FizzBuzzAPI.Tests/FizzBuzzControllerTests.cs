@@ -40,7 +40,8 @@ namespace FizzBuzzAPI.Tests
             var result = _controller.GetFizzBuzz(inputs) as OkObjectResult;
 
             // Assert
-            Assert.Equals(200, result.StatusCode);
+            AssertBase.Equals(200, result.StatusCode);
+            AssertBase.Equals(expected, result.Value);
         }
         [Test]
         public void GetFizzBuzz_EmptyList_ReturnsBadRequest()
@@ -52,8 +53,8 @@ namespace FizzBuzzAPI.Tests
             var result = _controller.GetFizzBuzz(inputs) as BadRequestObjectResult;
 
             // Assert
-            Assert.Equals(400, result.StatusCode);
-            Assert.Equals("Input cannot be empty. Please provide a list of numbers.", result.Value);
+            AssertBase.Equals(400, result.StatusCode);
+            AssertBase.Equals("Input cannot be empty. Please provide a list of numbers.", result.Value);
         }
         [Test]
         public void GetFizzBuzz_ListWithInvalidEntries_ReturnsExpectedResults()
@@ -68,8 +69,8 @@ namespace FizzBuzzAPI.Tests
             var result = _controller.GetFizzBuzz(inputs) as OkObjectResult;
 
             // Assert
-            Assert.Equals(200, result.StatusCode);
-            Assert.Equals(expected, result.Value);
+            AssertBase.Equals(200, result.StatusCode);
+            AssertBase.Equals(expected, result.Value);
         }
         [Test]
         public void GetFizzBuzz_NumberNotDivisibleBy3Or5_ReturnsDividedByMessages()
@@ -84,8 +85,8 @@ namespace FizzBuzzAPI.Tests
             var result = _controller.GetFizzBuzz(inputs) as OkObjectResult;
 
             // Assert
-            Assert.Equals(200, result.StatusCode);
-            Assert.Equals(expected, result.Value);
+            AssertBase.Equals(200, result.StatusCode);
+            AssertBase.Equals(expected, result.Value);
         }
 
     }
