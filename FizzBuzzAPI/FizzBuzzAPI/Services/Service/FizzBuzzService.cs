@@ -1,33 +1,33 @@
 ﻿using FizzBuzzAPI.Services.Interface;
+using System.Runtime.CompilerServices;
 
 namespace FizzBuzzAPI.Services.Service
 {
     public class FizzBuzzService : IFizzBuzzService
     {
         public List<string> GetFizzBuzzResult(List<string> inputs)
-        {
+        {         
             var results = new List<string>();
             foreach (var input in inputs)
             {
                 if (int.TryParse(input, out int number))
                 {
-                    if (number % 3 == 0 && number % 5 == 0)
-                        results.Add("FizzBuzz");
-                    else if (number % 3 == 0)
-                        results.Add("Fizz");
-                    else if (number % 5 == 0)
-                        results.Add("Buzz");
-                    else if (number % 3 != 0 && number % 5 != 0)
+                    if (number % FizzBuzzConstants.DivisorThree == 0 && number % FizzBuzzConstants.DivisorFive == 0)
+                        results.Add(FizzBuzzConstants.FizzBuzz);
+                    else if (number % FizzBuzzConstants.DivisorThree == 0)
+                        results.Add(FizzBuzzConstants.Fizz);
+                    else if (number % FizzBuzzConstants.DivisorFive == 0)
+                        results.Add(FizzBuzzConstants.Buzz);
+                    else if (number % FizzBuzzConstants.DivisorThree != 0 && number % FizzBuzzConstants.DivisorFive != 0)
                     { 
-                        results.Add("Divided " + number + " by 3");
-                        results.Add("Divided " + number + " by 5");
+                        results.Add(number + FizzBuzzConstants.NotMultipleOfAny);
                     }
                     else
                         results.Add(number.ToString());
                 }
                 else
                 {
-                    results.Add("Invalid input");
+                    results.Add(FizzBuzzConstants.InvalidInput);
                 }
             }
 
