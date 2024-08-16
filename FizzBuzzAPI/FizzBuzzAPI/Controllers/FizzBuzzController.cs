@@ -1,4 +1,5 @@
-﻿using FizzBuzzAPI.Services.Interface;
+﻿using FizzBuzzAPI.Factory.Interface;
+using FizzBuzzAPI.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FizzBuzzAPI.Controllers
@@ -7,21 +8,24 @@ namespace FizzBuzzAPI.Controllers
     [Route("[controller]")]
     public class FizzBuzzController : ControllerBase
     {
-        private readonly IFizzBuzzService _fizzBuzzService;
+        private readonly IFizzBuzzServiceFactory _fizzBuzzServiceFactory;
 
-        public FizzBuzzController(IFizzBuzzService fizzBuzzService)
+        public FizzBuzzController(IFizzBuzzServiceFactory fizzBuzzServiceFactory)
         {
-            _fizzBuzzService = fizzBuzzService;
+            _fizzBuzzServiceFactory = fizzBuzzServiceFactory;
         }
         [HttpPost("GetFizzBuzz")]
         public IActionResult GetFizzBuzz([FromBody] List<string> inputs)
         {
             if (inputs == null || !inputs.Any())
             {
-                return BadRequest("Input cannot be empty.");
+                return BadRequest("Input cannot be empty. Please provide a list of numbers.");
             }
 
-            var results = _fizzBuzzService.GetFizzBuzzResult(inputs);
+            // Use the factory to create an instance of FizzBuzzService
+            var fizzBuzzService = _fizzBuzzServiceFactory.CreateFizzBuzzService();
+
+            var results = fizzBuzzService.GetFizzBuzzResult(inputs);
             return Ok(results);
         }
     }

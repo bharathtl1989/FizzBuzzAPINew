@@ -3,13 +3,8 @@ using FizzBuzzAPI.Factory.Interface;
 using FizzBuzzAPI.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
-// Register FizzBuzz services and factory
-builder.Services.AddScoped<IFizzBuzzServiceFactory, FizzBuzzServiceFactory>();
-builder.Services.AddScoped<IFizzBuzzService>(provider =>
-{
-    var factory = provider.GetRequiredService<IFizzBuzzServiceFactory>();
-    return factory.CreateFizzBuzzService();
-});
+// Register the FizzBuzzServiceFactory with the DI container
+builder.Services.AddSingleton<IFizzBuzzServiceFactory, FizzBuzzServiceFactory>();
 
 // Add services to the container.
 
