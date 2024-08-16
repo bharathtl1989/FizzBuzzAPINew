@@ -1,0 +1,7 @@
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\bin\Debug\net8.0\.msCoverageSourceRootsMapping_FizzBuzzAPI.Tests
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_FizzBuzzAPI.Tests
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\obj\Debug\net8.0\FizzBuzzAPI.Tests.csproj.AssemblyReference.cache
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\obj\Debug\net8.0\FizzBuzzAPI.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\obj\Debug\net8.0\FizzBuzzAPI.Tests.AssemblyInfoInputs.cache
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\obj\Debug\net8.0\FizzBuzzAPI.Tests.AssemblyInfo.cs
+D:\FizzBuzzAPI\FizzBuzzAPI\FizzBuzzAPI.Tests\obj\Debug\net8.0\FizzBuzzAPI.Tests.csproj.CoreCompileInputs.cache
