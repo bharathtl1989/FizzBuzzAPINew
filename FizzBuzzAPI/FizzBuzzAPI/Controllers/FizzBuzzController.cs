@@ -13,28 +13,16 @@ namespace FizzBuzzAPI.Controllers
         {
             _fizzBuzzService = fizzBuzzService;
         }
-
-        [HttpGet("{input}")]
-        public IActionResult GetFizzBuzz(string input)
+        [HttpPost("GetFizzBuzz")]
+        public IActionResult GetFizzBuzz([FromBody] List<string> inputs)
         {
-            // Check if the input contains any alphabetic characters
-            if (string.IsNullOrWhiteSpace(input))
+            if (inputs == null || !inputs.Any())
             {
-                return BadRequest("Invalid input.");
-            }
-            if (input.Any(char.IsLetter))
-            {
-                return BadRequest("Invalid input.");
+                return BadRequest("Input cannot be empty.");
             }
 
-            // Check if the input can be parsed as an integer 
-            if (!int.TryParse(input, out int number))
-            {
-                return BadRequest("Invalid input.");
-            }
-
-            var result = _fizzBuzzService.GetFizzBuzzResult(number);
-            return Ok(result);
+            var results = _fizzBuzzService.GetFizzBuzzResult(inputs);
+            return Ok(results);
         }
     }
 }
